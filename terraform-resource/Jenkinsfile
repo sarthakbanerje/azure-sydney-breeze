@@ -16,18 +16,17 @@ pipeline {
             steps {
                 echo 'Deploy Azure Stack'
 //Either of the block to be executed for creation or deletion of stack
-                    sh '''
-                        az --version
-                        terraform --version
-                        az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_SECRET_VALUE --tenant $AZURE_TENANT_ID
-                        cd terraform-resource
-                        terraform init
-                        terraform plan
-                        terraform apply --auto-approve    
-                    '''
                     // sh '''
-                    //     terraform destroy --auto-approve
+                    //     az --version
+                    //     terraform --version
+                    //     az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_SECRET_VALUE --tenant $AZURE_TENANT_ID
+                    //     cd terraform-resource
+                    //     terraform init
+                    //     terraform apply --auto-approve    
                     // '''
+                    sh '''
+                        terraform destroy --auto-approve
+                    '''
             }
         }
     }
