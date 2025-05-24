@@ -55,7 +55,6 @@ resource "azurerm_ssh_public_key" "sshkey" {
 	location = var.location
 	resource_group_name = var.resource_group
   	public_key  = file("azurevm.pub")
-	with_module/Module/Virtual_Machine/main.tf
 }
 
 resource "azurerm_linux_virtual_machine" "azurevm" {
