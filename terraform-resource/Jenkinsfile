@@ -20,6 +20,7 @@ pipeline {
                         az --version
                         terraform --version
                         az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_SECRET_VALUE --tenant $AZURE_TENANT_ID
+                        cd terraform-resource
                         terraform init
                         terraform apply --auto-approve    
                     '''
