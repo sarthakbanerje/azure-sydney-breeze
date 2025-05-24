@@ -54,7 +54,7 @@ resource "azurerm_ssh_public_key" "sshkey" {
   	name  = "azurevmsydney-breeze"
 	location = var.location
 	resource_group_name = var.resource_group
-  	public_key  = file("Module/Virtual_Machine/azurevm.pub")
+  	public_key  = file("../Module/Virtual_Machine/azurevm.pub")
 }
 
 resource "azurerm_linux_virtual_machine" "azurevm" {
@@ -66,7 +66,7 @@ resource "azurerm_linux_virtual_machine" "azurevm" {
 	network_interface_ids = [azurerm_network_interface.nic.id]
 	admin_ssh_key {
 		username = "adminuser"
-		public_key = file("Module/Virtual_Machine/azurevm.pub")
+		public_key = file("../Module/Virtual_Machine/azurevm.pub")
 	}
 	os_disk {
 		storage_account_type = "Standard_LRS"
