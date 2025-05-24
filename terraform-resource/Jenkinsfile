@@ -22,6 +22,7 @@ pipeline {
                         az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_SECRET_VALUE --tenant $AZURE_TENANT_ID
                         cd terraform-resource
                         terraform init
+                        terraform plan
                         terraform apply --auto-approve    
                     '''
                     // sh '''
