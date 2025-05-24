@@ -1,0 +1,6 @@
+location = "eastus"
+resource_group = "sydney-breeze-RG"
+vnet_name = "sydney_breeze_vnet" 
+vnet_address_space = "10.4.0.0/16"
+subnet_name = "sydney_breeze_subnet_1" 
+subnet_address_space = "10.4.1.0/24" 

@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Azure-Deploy') {
+            agent {
+                docker {
+                    image 'ssarthakbanerjee/custom-terraform-azure-image:1'
+                    args "--entrypoint=''"
+                }
+            }
+            steps {
+                echo 'Deploy Azure Stack'
+//Either of the block to be executed for creation or deletion of stack
+                    sh '''
+                        az --version
+                        terraform --version
+
+                    '''
+                    // sh '''
+                    //     terraform destroy --auto-approve
+                    // '''
+            }
+        }
+    }
+}
