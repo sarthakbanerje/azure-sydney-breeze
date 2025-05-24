@@ -5,7 +5,7 @@ pipeline {
         stage('Azure-Deploy') {
             agent {
                 docker {
-                    image 'ssarthakbanerjee/custom-terraform-azure-image:1'
+                    image 'sarthakbanerjee/custom-terraform-azure-image:1'
                     args "--entrypoint=''"
                 }
             }
