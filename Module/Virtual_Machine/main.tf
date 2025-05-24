@@ -66,7 +66,7 @@ resource "azurerm_linux_virtual_machine" "azurevm" {
 	network_interface_ids = [azurerm_network_interface.nic.id]
 	admin_ssh_key {
 		username = "adminuser"
-		public_key = file("~/.ssh/azurevm.pub")
+		public_key = file("azurevm.pub")
 	}
 	os_disk {
 		storage_account_type = "Standard_LRS"
