@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+    environment {
+        AZURE_CLIENT_ID = credentials('azure-jenkins-clinet-id')
+        AZURE_SECRET_VALUE = credentials('azure-jerkins-secret-value')
+        AZURE_TENANT_ID = credentials('azure-jenkins-tenant-id')
+    }
     stages {
         stage('Azure-Deploy') {
             agent {
@@ -15,6 +19,7 @@ pipeline {
                     sh '''
                         az --version
                         terraform --version
+                        az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_SECRET_VALUE --tenant $AZURE_TENANT_ID
 
                     '''
                     // sh '''
